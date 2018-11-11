@@ -1,0 +1,55 @@
+<!doctype html>
+  <html>
+   <head>
+    <title>Crocodile</title>
+    <link rel='stylesheet' href='style.css' type='text/css'/>
+  </head>      
+  <body onresize="resize_canvas();">
+    <div id="login_container">
+          <div id="choose_nick">Choose your nickname</div>
+        <div id="login_container_input">
+            <input id="username" type="username" placeholder="Username">
+        </div>
+        <div id="login_container_button">
+            <input onclick="makeid();" type="submit" id="login_button" value="Enter the room"/>
+        </div>
+    </div>
+      <div id="game">
+    <canvas id="board"></canvas>
+        <div id="chat">
+        <ul id="messages"></ul>
+        <span id="notifyUser"></span>
+        <form id="form" action="" onsubmit="return submitfunction();" >
+            <input type="hidden" id="user" value="" /><input id="m" autocomplete="off" onkeyup="notifyTyping();" placeholder="Type yor message here.." /><input type="submit" id="button" value="Send"/>
+        </form>
+    </div>
+    <div id="tools">
+        <ul id="colors">
+            <li class="color" id="red" onmousedown="changeColor('#e74c3c');"></li>
+            <li class="color" id="orange" onmousedown="changeColor('#e67e22');"></li>
+            <li class="color" id="yellow" onmousedown="changeColor('#f1c40f');"></li>
+            <li class="color" id="green" onmousedown="changeColor('#2ecc71');"></li>
+            <li class="color" id="blue" onmousedown="changeColor('#3498db');"></li>
+            <li class="color" id="purple" onmousedown="changeColor('#9b59b6');"></li>
+            <li class="color" id="black" onmousedown="changeColor('#000');"></li>
+            <li class="color" id="white" onmousedown="changeColor('#fff');"></li>
+            <li id="clear" onclick="sendClearToAll();">Clear</li>
+        </ul>
+        <ul id="sizes">
+            <li class="size" id="size3" onmousedown="changeBrushSize(3);">3</li>
+            <li class="size" id="size5" onmousedown="changeBrushSize(5);">5</li>
+            <li class="size" id="size10" onmousedown="changeBrushSize(10);">10</li>
+            <li class="size" id="size15" onmousedown="changeBrushSize(15);">15</li>
+            <li class="size" id="size20" onmousedown="changeBrushSize(20);">20</li>
+        </ul>
+    </div>
+      </div>
+      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="chat.js"></script>
+    <script src="drawing.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>
